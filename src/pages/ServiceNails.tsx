@@ -1,10 +1,12 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SectionTitle from "@/components/SectionTitle";
-import nail2 from "@/assets/nail-2.jpg";
+import { type CarouselApi, Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import nail2 from "@/assets/nail-2.png";
 import nail3 from "@/assets/nail-3.jpg";
-import nail4 from "@/assets/nail-4.jpg";
-import nail5 from "@/assets/nail-5.jpg";
+import nail4 from "@/assets/nail-4.webp";
+import nail5 from "@/assets/nail-5.webp";
 import nail6 from "@/assets/nail-6.jpg";
 
 const services = [
@@ -13,7 +15,6 @@ const services = [
   { image: nail4, name: "Classic Pedicure", price: "$58" },
   { image: nail5, name: "Express Manicure (Gel)", price: "$48" },
   { image: nail6, name: "Classic Pedicure (Gel)", price: "$78" },
-  { image: nail2, name: "Express Pedicure (Gel)", price: "$58" },
 ];
 
 const pricingTabs = [
@@ -65,16 +66,27 @@ const faqs = [
   },
 ];
 
-import { useState } from "react";
-
 const ServiceNails = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+
+  useEffect(() => {
+    if (!carouselApi) {
+      return;
+    }
+
+    const autoplay = setInterval(() => {
+      carouselApi.scrollNext();
+    }, 2500);
+
+    return () => clearInterval(autoplay);
+  }, [carouselApi]);
 
   return (
     <Layout>
       {/* Help Banner */}
-      <section className="py-8 bg-background bg-floral-pattern">
+      <section className="py-8 bg-floral-pattern">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <h2 className="font-heading text-xl font-bold text-foreground mb-1">How can we help you?</h2>
@@ -93,39 +105,54 @@ const ServiceNails = () => {
       </section>
 
       {/* Service Cards */}
-      <section className="py-12 bg-background bg-floral-pattern">
+      <section className="py-12 bg-floral-pattern">
         <div className="container mx-auto px-4">
-          <SectionTitle subtitle="Jen Beauty" title="Nails Service" />
+          <SectionTitle subtitle="Kim Brows Hair & Nail" title="Nails Service" />
           <p className="text-center text-muted-foreground mb-10">Find Your Perfect Nails Design</p>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {services.map((item, i) => (
-              <div key={i} className="text-center group">
-                <div className="relative overflow-hidden rounded-2xl mb-3 aspect-square">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <Link
-                    to="/booking"
-                    className="absolute inset-0 flex items-center justify-center bg-foreground/40 opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    <span className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-bold">
-                      Book Now
-                    </span>
-                  </Link>
-                </div>
-                <h3 className="font-heading text-foreground">{item.name}</h3>
-                <p className="font-heading italic text-primary">{item.price}</p>
-              </div>
-            ))}
+          <div className="max-w-[940px] mx-auto">
+            <Carousel
+              setApi={setCarouselApi}
+              opts={{
+                align: "start",
+                loop: true,
+                slidesToScroll: 1,
+              }}
+            >
+              <CarouselContent>
+                {services.map((item, i) => (
+                  <CarouselItem key={i} className="!basis-[220px]">
+                    <div className="text-center group w-[220px]">
+                      <div className="relative overflow-hidden rounded-2xl mb-3 w-[220px] h-[220px] mask-card">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <Link
+                          to="/booking"
+                          className="absolute inset-0 flex items-center justify-center bg-foreground/40 opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          <span className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-bold">
+                            Book Now
+                          </span>
+                        </Link>
+                      </div>
+                      <h3 className="font-heading text-foreground">{item.name}</h3>
+                      <p className="font-heading italic text-primary">{item.price}</p>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2 top-[110px] bg-background/80 border-border" />
+              <CarouselNext className="right-2 top-[110px] bg-background/80 border-border" />
+            </Carousel>
           </div>
         </div>
       </section>
 
       {/* Pricing Section */}
-      <section className="py-12 bg-background bg-floral-pattern">
+      <section className="py-12 bg-floral-pattern">
         <div className="container mx-auto px-4">
           <SectionTitle subtitle="Nails Service" title="Pricing" />
 
@@ -175,7 +202,7 @@ const ServiceNails = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-12 bg-background">
+      <section className="py-12 ">
         <div className="container mx-auto px-4 max-w-2xl">
           <h3 className="font-heading text-2xl font-bold text-center text-foreground mb-8">Frequently Asked Questions</h3>
           <div className="space-y-3">

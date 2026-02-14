@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SectionTitle from "@/components/SectionTitle";
-import heroBanner1 from "@/assets/hero-banner-1.jpg";
+import { type CarouselApi, Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import heroBanner1 from "@/assets/hero-banner-1.png";
 import heroBanner2 from "@/assets/hero-banner-2.jpg";
 import heroBanner3 from "@/assets/hero-banner-3.jpg";
-import nail2 from "@/assets/nail-2.jpg";
+import nail2 from "@/assets/nail-2.png";
 import nail3 from "@/assets/nail-3.jpg";
-import nail4 from "@/assets/nail-4.jpg";
-import nail5 from "@/assets/nail-5.jpg";
+import nail4 from "@/assets/nail-4.webp";
+import nail5 from "@/assets/nail-5.webp";
 import nail6 from "@/assets/nail-6.jpg";
 import salonInterior from "@/assets/salon-interior.jpg";
 
@@ -35,6 +36,7 @@ const stats = [
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [topPicksApi, setTopPicksApi] = useState<CarouselApi>();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -42,6 +44,18 @@ const Index = () => {
     }, 5000);
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    if (!topPicksApi) {
+      return;
+    }
+
+    const autoplay = setInterval(() => {
+      topPicksApi.scrollNext();
+    }, 2500);
+
+    return () => clearInterval(autoplay);
+  }, [topPicksApi]);
 
   return (
     <Layout>
@@ -56,7 +70,7 @@ const Index = () => {
           >
             <img
               src={slide.image}
-              alt="Jen Beauty"
+              alt="Kim Brows Hair & Nail"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-foreground/40" />
@@ -68,7 +82,7 @@ const Index = () => {
               Welcome To
             </p>
             <h1 className="font-heading italic text-primary-foreground text-4xl md:text-6xl font-bold mb-4">
-              Jen Beauty
+              Kim Brows Hair & Nail
             </h1>
             <p className="text-primary-foreground/80 text-lg md:text-xl mb-8 max-w-lg">
               {heroSlides[currentSlide].subtitle}
@@ -96,34 +110,49 @@ const Index = () => {
       </section>
 
       {/* Top Picks Section */}
-      <section className="py-16 bg-floral-pattern bg-background">
+      <section className="py-16">
         <div className="container mx-auto px-4">
-          <SectionTitle subtitle="Welcome to Jen Beauty" title="Explore Top Picks" />
+          <SectionTitle subtitle="Welcome to Kim Brows Hair & Nail" title="Explore Top Picks" />
           <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-10">
-            Pamper yourself with fantastic services at Jen Beauty. We offer manicures, pedicures, eyelash extensions, facial spa treatments, hair removal, and expert eyebrow/lip embroidery.
+            Pamper yourself with fantastic services at Kim Brows Hair & Nail. We offer manicures, pedicures, eyelash extensions, facial spa treatments, hair removal, and expert eyebrow/lip embroidery.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {topPicks.map((item, i) => (
-              <div key={i} className="text-center group animate-fade-in" style={{ animationDelay: `${i * 100}ms` }}>
-                <div className="relative overflow-hidden rounded-2xl mb-3 aspect-square">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <Link
-                    to="/booking"
-                    className="absolute inset-0 flex items-center justify-center bg-foreground/40 opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    <span className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-bold">
-                      Book Now
-                    </span>
-                  </Link>
-                </div>
-                <h3 className="font-heading text-sm md:text-base text-foreground">{item.name}</h3>
-                <p className="font-heading italic text-primary text-sm">{item.price}</p>
-              </div>
-            ))}
+          <div className="max-w-[940px] mx-auto">
+            <Carousel
+              setApi={setTopPicksApi}
+              opts={{
+                align: "start",
+                loop: true,
+                slidesToScroll: 1,
+              }}
+            >
+              <CarouselContent>
+                {topPicks.map((item, i) => (
+                  <CarouselItem key={i} className="!basis-[220px]">
+                    <div className="text-center group animate-fade-in w-[220px]" style={{ animationDelay: `${i * 100}ms` }}>
+                      <div className="relative overflow-hidden rounded-2xl mb-3 w-[220px] h-[220px] mask-card">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <Link
+                          to="/booking"
+                          className="absolute inset-0 flex items-center justify-center bg-foreground/40 opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          <span className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-bold">
+                            Book Now
+                          </span>
+                        </Link>
+                      </div>
+                      <h3 className="font-heading text-sm md:text-base text-foreground">{item.name}</h3>
+                      <p className="font-heading italic text-primary text-sm">{item.price}</p>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2 top-[110px] bg-background/80 border-border" />
+              <CarouselNext className="right-2 top-[110px] bg-background/80 border-border" />
+            </Carousel>
           </div>
           <div className="text-center mt-10">
             <Link
@@ -137,12 +166,12 @@ const Index = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 bg-background">
+      <section className="py-16">
         <div className="container mx-auto px-4">
-          <SectionTitle subtitle="Jen Beauty" title="Why Choose Us" />
+          <SectionTitle subtitle="Kim Brows Hair & Nail" title="Why Choose Us" />
           <div className="grid md:grid-cols-2 gap-10 items-center">
-            <div className="rounded-2xl overflow-hidden">
-              <img src={salonInterior} alt="Jen Beauty Salon" className="w-full h-80 object-cover" />
+            <div className="rounded-2xl overflow-hidden mask-card">
+              <img src={salonInterior} alt="Kim Brows Hair & Nail Salon" className="w-full h-80 object-cover" />
             </div>
             <div>
               <h3 className="font-heading text-xl font-bold text-foreground mb-4">Special Treatments</h3>
@@ -174,7 +203,7 @@ const Index = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
             {stats.map((stat, i) => (
-              <div key={i} className="text-center p-6 rounded-xl bg-secondary">
+              <div key={i} className="text-center p-6 rounded-xl bg-secondary mask-card">
                 <p className="font-heading text-3xl font-bold text-primary">{stat.number}</p>
                 <p className="text-sm text-muted-foreground mt-1 uppercase tracking-wide">{stat.label}</p>
               </div>

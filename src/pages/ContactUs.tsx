@@ -5,9 +5,9 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 const ContactUs = () => {
   return (
     <Layout>
-      <section className="py-12 bg-background bg-floral-pattern min-h-screen">
+      <section className="py-12 bg-floral-pattern min-h-screen">
         <div className="container mx-auto px-4">
-          <SectionTitle subtitle="Jen Beauty" title="Get In Touch" />
+          <SectionTitle subtitle="Kim Brows Hair & Nail" title="Get In Touch" />
 
           <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-10">
             Our <span className="font-bold text-primary">customer support</span> team is available during business hours (10am-10pm) to assist you with{" "}
@@ -17,14 +17,14 @@ const ContactUs = () => {
           {/* Google Maps Embed */}
           <div className="max-w-3xl mx-auto mb-12 rounded-xl overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7943!2d103.8569!3d1.3006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19c4315c0c23%3A0x1a7cba9fcc929a28!2sJen%20Beauty!5e0!3m2!1sen!2ssg!4v1700000000000!5m2!1sen!2ssg"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7943!2d103.8569!3d1.3006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19c4315c0c23%3A0x1a7cba9fcc929a28!2sKim%20Brows%20Hair%20%26%20Nail!5e0!3m2!1sen!2ssg!4v1700000000000!5m2!1sen!2ssg"
               width="100%"
               height="400"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Jen Beauty Location"
+              title="Kim Brows Hair & Nail Location"
             />
           </div>
 
@@ -43,7 +43,7 @@ const ContactUs = () => {
             <div className="bg-card rounded-xl p-6 text-center shadow-sm">
               <Mail className="w-8 h-8 text-primary mx-auto mb-3" />
               <h3 className="font-heading font-bold text-foreground mb-1">Email</h3>
-              <p className="text-sm text-muted-foreground">jen.beauty9099@gmail.com</p>
+              <p className="text-sm text-muted-foreground">hotro@gmail.com</p>
             </div>
             <div className="bg-card rounded-xl p-6 text-center shadow-sm">
               <Clock className="w-8 h-8 text-primary mx-auto mb-3" />

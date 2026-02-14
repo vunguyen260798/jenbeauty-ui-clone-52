@@ -16,12 +16,13 @@ const Header = () => {
   return (
     <header className="w-full">
       {/* Top contact bar */}
-      <div className="bg-card py-3 px-4">
+      <div className=" py-3 px-4">
         <div className="container mx-auto flex flex-wrap items-center justify-between gap-4">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
             <div className="w-16 h-16 rounded-full border-2 border-primary/30 flex items-center justify-center bg-card">
-              <span className="font-heading italic text-primary text-sm leading-tight text-center">Jen<br/>Beauty</span>
+              {/* <span className="font-heading italic text-primary text-sm leading-tight text-center">Kim<br/>Brows Hair & Nail</span> */}
+              <img src="/Logo_Kim/fulllogo_transparent.png" alt="Kim Brows Hair & Nail Logo" className="w-full h-full object-contain" />
             </div>
           </Link>
 
@@ -38,13 +39,13 @@ const Header = () => {
               <Globe className="w-5 h-5 text-primary" />
               <div>
                 <p className="font-bold text-sm text-foreground">+65 8858 9099</p>
-                <p className="text-xs text-muted-foreground">jen.beauty9099@gmail.com</p>
+                <p className="text-xs text-muted-foreground">kimbrowshairnail9099@gmail.com</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <Camera className="w-5 h-5 text-primary" />
               <div>
-                <p className="font-bold text-sm text-foreground">Jen.Beauty_Sg</p>
+                <p className="font-bold text-sm text-foreground">Kim.Brows.Hair.Nail</p>
                 <p className="text-xs text-muted-foreground">10:00-22:00, Mon to Sun</p>
               </div>
             </div>

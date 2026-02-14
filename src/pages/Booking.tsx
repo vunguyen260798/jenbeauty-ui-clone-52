@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const Booking = () => {
   return (
     <Layout>
-      <section className="py-20 bg-background bg-floral-pattern min-h-screen flex items-center justify-center">
+      <section className="py-20 bg-floral-pattern min-h-screen flex items-center justify-center">
         <div className="text-center max-w-lg mx-auto px-4">
-          <p className="font-heading italic text-primary text-xl mb-2">Jen Beauty</p>
+          <p className="font-heading italic text-primary text-xl mb-2">Kim Brows Hair & Nail</p>
           <h1 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">Book an Appointment</h1>
           <p className="text-muted-foreground mb-8">
             Contact us via WhatsApp or call to make your appointment. We're open daily from 10:00 AM to 10:00 PM.

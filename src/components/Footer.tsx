@@ -9,10 +9,10 @@ const Footer = () => {
           {/* About */}
           <div>
             <div className="w-16 h-16 rounded-full border-2 border-primary/50 flex items-center justify-center bg-card/10 mb-4">
-              <span className="font-heading italic text-primary text-sm leading-tight text-center">Jen<br/>Beauty</span>
+              <span className="font-heading italic text-primary text-sm leading-tight text-center">Kim<br/>Brows Hair & Nail</span>
             </div>
             <p className="text-sm leading-relaxed">
-              Pamper yourself with fantastic services at Jen Beauty. We offer manicures, pedicures, eyelash extensions, facial spa treatments, and more.
+              Pamper yourself with fantastic services at Kim Brows Hair & Nail. We offer manicures, pedicures, eyelash extensions, facial spa treatments, and more.
             </p>
           </div>
 
@@ -41,7 +41,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-                <span>jen.beauty9099@gmail.com</span>
+                <span>kimbrowshairnail9099@gmail.com</span>
               </li>
               <li className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-primary flex-shrink-0" />
@@ -52,7 +52,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/20 pt-4 text-center text-xs">
-          <p>© 2024 Jen Beauty. All rights reserved.</p>
+          <p>© 2024 Kim Brows Hair & Nail. All rights reserved.</p>
         </div>
       </div>
     </footer>

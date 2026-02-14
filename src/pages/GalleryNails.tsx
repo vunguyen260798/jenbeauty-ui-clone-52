@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import SectionTitle from "@/components/SectionTitle";
-import nail2 from "@/assets/nail-2.jpg";
+import nail2 from "@/assets/nail-2.png";
 import nail3 from "@/assets/nail-3.jpg";
-import nail4 from "@/assets/nail-4.jpg";
-import nail5 from "@/assets/nail-5.jpg";
+import nail4 from "@/assets/nail-4.webp";
+import nail5 from "@/assets/nail-5.webp";
 import nail6 from "@/assets/nail-6.jpg";
 import salonInterior from "@/assets/salon-interior.jpg";
-import heroBanner1 from "@/assets/hero-banner-1.jpg";
+import heroBanner1 from "@/assets/hero-banner-1.png";
 import heroBanner2 from "@/assets/hero-banner-2.jpg";
 
 const categories = ["NAILS", "EYE LASH", "OUR SHOP"];
@@ -41,9 +41,9 @@ const GalleryNails = () => {
 
   return (
     <Layout>
-      <section className="py-12 bg-background bg-floral-pattern min-h-screen">
+      <section className="py-12 bg-floral-pattern min-h-screen">
         <div className="container mx-auto px-4">
-          <SectionTitle subtitle="Jen Beauty" title="Our Nails Gallery" />
+          <SectionTitle subtitle="Kim Brows Hair & Nail" title="Our Nails Gallery" />
 
           {/* Category tabs */}
           <div className="flex flex-wrap justify-center gap-4 mb-10">
@@ -67,7 +67,7 @@ const GalleryNails = () => {
             {images.map((img, i) => (
               <div
                 key={i}
-                className="group cursor-pointer overflow-hidden rounded-xl aspect-square animate-fade-in"
+                className="group cursor-pointer overflow-hidden rounded-xl aspect-square animate-fade-in mask-card"
                 style={{ animationDelay: `${i * 80}ms` }}
                 onClick={() => setLightboxImg(img.src)}
               >
