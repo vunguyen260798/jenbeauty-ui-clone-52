@@ -13,9 +13,11 @@ import nail5 from "@/assets/nail-5.webp";
 import nail6 from "@/assets/nail-6.jpg";
 import salonInterior from "@/assets/salon-interior.jpg";
 
+const INSTAGRAM_URL = "https://www.instagram.com/kim.beauty.nail.hair/";
+
 const heroSlides = [
-  { image: heroBanner1, subtitle: "Bugis Nails, Bugis Eyelash, Bugis Spa" },
-  { image: heroBanner2, subtitle: "Cheap Nails and Lash In Haji Ln, near Bugis Junction" },
+  { image: heroBanner1, subtitle: "Premium nails, eyelash, and beauty care in Union City" },
+  { image: heroBanner2, subtitle: "Relaxing salon experience with expert technicians" },
   { image: heroBanner3, subtitle: "Manicure, pedicure, nail spa, eyelash extensions" },
 ];
 
@@ -70,7 +72,7 @@ const Index = () => {
           >
             <img
               src={slide.image}
-              alt="Kim Brows Hair & Nail"
+              alt="KIM BEAUTY NAIL & HAIR"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-foreground/40" />
@@ -82,7 +84,7 @@ const Index = () => {
               Welcome To
             </p>
             <h1 className="font-heading italic text-primary-foreground text-4xl md:text-6xl font-bold mb-4">
-              Kim Brows Hair & Nail
+              KIM BEAUTY NAIL & HAIR
             </h1>
             <p className="text-primary-foreground/80 text-lg md:text-xl mb-8 max-w-lg">
               {heroSlides[currentSlide].subtitle}
@@ -112,9 +114,9 @@ const Index = () => {
       {/* Top Picks Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <SectionTitle subtitle="Welcome to Kim Brows Hair & Nail" title="Explore Top Picks" />
+          <SectionTitle subtitle="Welcome to KIM BEAUTY NAIL & HAIR" title="Explore Top Picks" />
           <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-10">
-            Pamper yourself with fantastic services at Kim Brows Hair & Nail. We offer manicures, pedicures, eyelash extensions, facial spa treatments, hair removal, and expert eyebrow/lip embroidery.
+            Pamper yourself with fantastic services at KIM BEAUTY NAIL & HAIR. We offer manicures, pedicures, eyelash extensions, facial spa treatments, hair removal, and expert eyebrow/lip embroidery.
           </p>
           <div className="max-w-[940px] mx-auto">
             <Carousel
@@ -168,10 +170,10 @@ const Index = () => {
       {/* Why Choose Us Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <SectionTitle subtitle="Kim Brows Hair & Nail" title="Why Choose Us" />
+          <SectionTitle subtitle="KIM BEAUTY NAIL & HAIR" title="Why Choose Us" />
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div className="rounded-2xl overflow-hidden mask-card">
-              <img src={salonInterior} alt="Kim Brows Hair & Nail Salon" className="w-full h-80 object-cover" />
+              <img src={salonInterior} alt="KIM BEAUTY NAIL & HAIR Salon" className="w-full h-80 object-cover" />
             </div>
             <div>
               <h3 className="font-heading text-xl font-bold text-foreground mb-4">Special Treatments</h3>
@@ -217,6 +219,20 @@ const Index = () => {
             >
               30% Discount New Customer
             </Link>
+          </div>
+
+          <div className="mt-10 mx-auto max-w-md bg-card rounded-xl p-5 shadow-sm flex items-center gap-4">
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="shrink-0">
+              <img
+                src="/QR%20Code_Instagram_Kim/design.png"
+                alt="Instagram QR"
+                className="w-20 h-20 object-contain bg-white p-2 rounded"
+              />
+            </a>
+            <div>
+              <p className="font-heading text-foreground font-bold">Follow us on Instagram</p>
+              <p className="text-sm text-muted-foreground">Scan to explore our latest nail and hair transformations.</p>
+            </div>
           </div>
         </div>
       </section>

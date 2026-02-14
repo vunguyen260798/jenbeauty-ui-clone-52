@@ -43,7 +43,7 @@ const GalleryNails = () => {
     <Layout>
       <section className="py-12 bg-floral-pattern min-h-screen">
         <div className="container mx-auto px-4">
-          <SectionTitle subtitle="Kim Brows Hair & Nail" title="Our Nails Gallery" />
+          <SectionTitle subtitle="KIM BEAUTY NAIL & HAIR" title="Our Nails Gallery" />
 
           {/* Category tabs */}
           <div className="flex flex-wrap justify-center gap-4 mb-10">

@@ -90,15 +90,15 @@ const ServiceNails = () => {
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <h2 className="font-heading text-xl font-bold text-foreground mb-1">How can we help you?</h2>
-            <p className="text-sm text-muted-foreground">Contact us 21A Haji Lane or via Whatsapp</p>
-            <p className="text-sm text-muted-foreground">(+65) 8858 9099</p>
+            <p className="text-sm text-muted-foreground">Contact us at 34547 Alvarado-Niles Rd, Union City, CA 94587</p>
+            <p className="text-sm text-muted-foreground">+1 (669) 837-3923</p>
             <a
-              href="https://wa.me/6588589099"
+              href="tel:+16698373923"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block mt-3 bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-bold text-sm hover:bg-gold-dark transition-colors"
             >
-              WHATSAPP US
+              CALL US
             </a>
           </div>
         </div>
@@ -107,7 +107,7 @@ const ServiceNails = () => {
       {/* Service Cards */}
       <section className="py-12 bg-floral-pattern">
         <div className="container mx-auto px-4">
-          <SectionTitle subtitle="Kim Brows Hair & Nail" title="Nails Service" />
+          <SectionTitle subtitle="KIM BEAUTY NAIL & HAIR" title="Nails Service" />
           <p className="text-center text-muted-foreground mb-10">Find Your Perfect Nails Design</p>
 
           <div className="max-w-[940px] mx-auto">

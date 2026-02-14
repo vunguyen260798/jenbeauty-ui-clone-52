@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
+const INSTAGRAM_URL = "https://www.instagram.com/kim.beauty.nail.hair/";
+
 const Footer = () => {
   return (
     <footer className="bg-foreground text-primary-foreground/80 pt-12 pb-6">
@@ -9,11 +11,24 @@ const Footer = () => {
           {/* About */}
           <div>
             <div className="w-16 h-16 rounded-full border-2 border-primary/50 flex items-center justify-center bg-card/10 mb-4">
-              <span className="font-heading italic text-primary text-sm leading-tight text-center">Kim<br/>Brows Hair & Nail</span>
+              <span className="font-heading italic text-primary text-sm leading-tight text-center">KIM BEAUTY<br/>NAIL & HAIR</span>
             </div>
             <p className="text-sm leading-relaxed">
-              Pamper yourself with fantastic services at Kim Brows Hair & Nail. We offer manicures, pedicures, eyelash extensions, facial spa treatments, and more.
+              Pamper yourself with fantastic services at KIM BEAUTY NAIL & HAIR. We offer manicures, pedicures, eyelash extensions, facial spa treatments, and more.
             </p>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-3 hover:opacity-90 transition-opacity"
+            >
+              <img
+                src="/QR%20Code_Instagram_Kim/design.png"
+                alt="Instagram QR"
+                className="w-14 h-14 bg-white p-1 rounded"
+              />
+              <span className="text-xs text-primary-foreground/80">Scan to visit Instagram</span>
+            </a>
           </div>
 
           {/* Quick Links */}
@@ -33,11 +48,11 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                <span>21a Haji Lane, #02-00, Kampong Bugis, Singapore 189214</span>
+                <span>34547 Alvarado-Niles Rd, Union City, CA 94587</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-                <span>+65 8858 9099</span>
+                <span>+1 (669) 837-3923</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-primary flex-shrink-0" />
@@ -45,14 +60,14 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-primary flex-shrink-0" />
-                <span>10:00 - 22:00, Mon to Sun</span>
+                <span>Mon - Fri (10 AM - 7 PM), Sat (10 AM - 6 PM), Sun (Closed)</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-primary-foreground/20 pt-4 text-center text-xs">
-          <p>© 2024 Kim Brows Hair & Nail. All rights reserved.</p>
+          <p>© 2024 KIM BEAUTY NAIL & HAIR. All rights reserved.</p>
         </div>
       </div>
     </footer>

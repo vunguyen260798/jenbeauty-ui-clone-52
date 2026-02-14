@@ -2,6 +2,8 @@ import { Link, useLocation } from "react-router-dom";
 import { MapPin, Globe, Camera, Menu, X } from "lucide-react";
 import { useState } from "react";
 
+const INSTAGRAM_URL = "https://www.instagram.com/kim.beauty.nail.hair/";
+
 const navItems = [
   { label: "SERVICE", path: "/service/nails" },
   { label: "GALLERY", path: "/gallery/nails" },
@@ -22,7 +24,7 @@ const Header = () => {
           <Link to="/" className="flex-shrink-0">
             <div className="w-16 h-16 rounded-full border-2 border-primary/30 flex items-center justify-center bg-card">
               {/* <span className="font-heading italic text-primary text-sm leading-tight text-center">Kim<br/>Brows Hair & Nail</span> */}
-              <img src="/Logo_Kim/fulllogo_transparent.png" alt="Kim Brows Hair & Nail Logo" className="w-full h-full object-contain" />
+              <img src="/Logo_Kim/fulllogo_transparent.png" alt="KIM BEAUTY NAIL & HAIR Logo" className="w-full h-full object-contain" />
             </div>
           </Link>
 
@@ -31,22 +33,24 @@ const Header = () => {
             <div className="flex items-center gap-2">
               <MapPin className="w-5 h-5 text-primary" />
               <div>
-                <p className="font-bold text-sm text-foreground">21a Haji Lane, #02-00</p>
-                <p className="text-xs text-muted-foreground">Kampong Bugis, Singapore 189214</p>
+                <p className="font-bold text-sm text-foreground">34547 Alvarado-Niles Rd</p>
+                <p className="text-xs text-muted-foreground">Union City, CA 94587</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <Globe className="w-5 h-5 text-primary" />
               <div>
-                <p className="font-bold text-sm text-foreground">+65 8858 9099</p>
+                <p className="font-bold text-sm text-foreground">+1 (669) 837-3923</p>
                 <p className="text-xs text-muted-foreground">kimbrowshairnail9099@gmail.com</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <Camera className="w-5 h-5 text-primary" />
               <div>
-                <p className="font-bold text-sm text-foreground">Kim.Brows.Hair.Nail</p>
-                <p className="text-xs text-muted-foreground">10:00-22:00, Mon to Sun</p>
+                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="font-bold text-sm text-foreground hover:text-primary transition-colors">
+                  @kim.beauty.nail.hair
+                </a>
+                <p className="text-xs text-muted-foreground">Mon - Fri (10 AM - 7 PM), Sat (10 AM - 6 PM), Sun (Closed)</p>
               </div>
             </div>
           </div>

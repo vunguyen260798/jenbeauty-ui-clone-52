@@ -1,35 +1,88 @@
 import Layout from "@/components/Layout";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
+const ACUITY_EMBED_URL = "https://app.acuityscheduling.com/schedule.php?owner=38337322";
+const ACUITY_EMBED_SCRIPT = "https://embed.acuityscheduling.com/js/embed.js";
+const INSTAGRAM_URL = "https://www.instagram.com/kim.beauty.nail.hair/";
 
 const Booking = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = ACUITY_EMBED_SCRIPT;
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <Layout>
-      <section className="py-20 bg-floral-pattern min-h-screen flex items-center justify-center">
-        <div className="text-center max-w-lg mx-auto px-4">
-          <p className="font-heading italic text-primary text-xl mb-2">Kim Brows Hair & Nail</p>
-          <h1 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">Book an Appointment</h1>
-          <p className="text-muted-foreground mb-8">
-            Contact us via WhatsApp or call to make your appointment. We're open daily from 10:00 AM to 10:00 PM.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://wa.me/6588589099"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-bold text-sm hover:bg-gold-dark transition-colors"
-            >
-              WHATSAPP US
-            </a>
-            <a
-              href="tel:+6588589099"
-              className="border-2 border-primary text-primary px-8 py-3 rounded-full font-bold text-sm hover:bg-primary hover:text-primary-foreground transition-colors"
-            >
-              CALL +65 8858 9099
-            </a>
+      <section className="py-20 md:py-28">
+        <div className="container max-w-7xl mx-auto px-4">
+          <div className="space-y-10">
+            <div className="border border-border bg-background/80 p-4 md:p-6 rounded-xl">
+              <iframe
+                title="Acuity Scheduling"
+                src={ACUITY_EMBED_URL}
+                width="100%"
+                height="1100"
+                frameBorder={0}
+              />
+            </div>
+
+            <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-start">
+              <div className="border border-border bg-background/80 p-8 rounded-xl">
+                <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                  Live booking
+                </p>
+                <h2 className="font-heading text-3xl md:text-4xl text-foreground mt-4">
+                  Schedule in real time
+                </h2>
+                <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
+                  Pick your service, preferred staff, and the time that works best. The live
+                  calendar updates instantly as you browse.
+                </p>
+                <div className="mt-6 text-sm text-foreground">
+                  +1 (669) 837-3923
+                  <span className="block text-xs text-muted-foreground mt-2">
+                    Mon - Fri (10 AM - 7 PM)
+                    <br />
+                    Sat (10 AM - 6 PM), Sun (Closed)
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid gap-6">
+                <div className="bg-foreground text-primary-foreground p-6 rounded-xl">
+                  <p className="text-xs uppercase tracking-[0.3em] text-primary">
+                    Instagram
+                  </p>
+                  <div className="mt-5 flex items-center gap-4">
+                    <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="/QR%20Code_Instagram_Kim/design.png"
+                        alt="QR Instagram"
+                        className="w-20 h-20 object-contain bg-white p-2"
+                      />
+                    </a>
+                    <p className="text-sm text-primary-foreground/70">
+                      Scan the QR for our latest nails and lash looks.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="border border-border bg-background/80 p-4 rounded-xl">
+                  <img
+                    src="/Business_Card/front_fullcolor_1024x599.png"
+                    alt="Business card"
+                    className="w-full"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <Link to="/" className="inline-block mt-8 text-sm text-muted-foreground hover:text-primary transition-colors">
-            ← Back to Home
-          </Link>
         </div>
       </section>
     </Layout>
