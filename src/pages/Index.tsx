@@ -172,7 +172,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <SectionTitle subtitle="KIM BEAUTY NAIL & HAIR" title="Why Choose Us" />
           <div className="grid md:grid-cols-2 gap-10 items-center">
-            <div className="rounded-2xl overflow-hidden mask-card">
+            <div className="rounded-2xl overflow-hidden">
               <img src={salonInterior} alt="KIM BEAUTY NAIL & HAIR Salon" className="w-full h-80 object-cover" />
             </div>
             <div>
@@ -205,7 +205,7 @@ const Index = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
             {stats.map((stat, i) => (
-              <div key={i} className="text-center p-6 rounded-xl bg-secondary mask-card">
+              <div key={i} className="text-center p-6 rounded-xl bg-secondary">
                 <p className="font-heading text-3xl font-bold text-primary">{stat.number}</p>
                 <p className="text-sm text-muted-foreground mt-1 uppercase tracking-wide">{stat.label}</p>
               </div>

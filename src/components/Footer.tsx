@@ -10,8 +10,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* About */}
           <div>
-            <div className="w-16 h-16 rounded-full border-2 border-primary/50 flex items-center justify-center bg-card/10 mb-4">
-              <span className="font-heading italic text-primary text-sm leading-tight text-center">KIM BEAUTY<br/>NAIL & HAIR</span>
+            <div className="w-16 h-16 rounded-full border-2 border-primary/50 flex items-center justify-center bg-white mb-4">
+              {/* <span className="font-heading italic text-primary text-sm leading-tight text-center">KIM BEAUTY<br/>NAIL & HAIR</span> */}
+              <img src="/Logo_Kim/fulllogo_transparent.png" alt="KIM BEAUTY NAIL & HAIR Logo" className="w-full h-full object-contain" />
+            
             </div>
             <p className="text-sm leading-relaxed">
               Pamper yourself with fantastic services at KIM BEAUTY NAIL & HAIR. We offer manicures, pedicures, eyelash extensions, facial spa treatments, and more.
