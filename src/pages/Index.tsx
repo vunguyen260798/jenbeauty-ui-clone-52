@@ -24,6 +24,11 @@ import kid2 from "@/assets/kid-2.jpg";
 import kid3 from "@/assets/kid-3.jpg";
 import kid4 from "@/assets/kid-4.jpg";
 
+import product1 from "@/assets/product-1.jpg";
+import product2 from "@/assets/product-2.jpg";
+import product3 from "@/assets/product-3.jpg";
+import product4 from "@/assets/product-4.jpg";
+
 import salonInterior from "@/assets/salon-interior.jpg";
 
 const INSTAGRAM_URL = "https://www.instagram.com/kim.beauty.nail.hair/";
@@ -99,6 +104,29 @@ const pricingGroups = [
       { name: "Nails Design", price: "$5 & up" },
       { name: "Nails Cut Down", price: "$5 & up" },
     ],
+  },
+];
+
+const products = [
+  {
+    image: product1,
+    name: "Cuticle Oil",
+    description: "Hydrates dry cuticles and keeps nails looking healthy between appointments.",
+  },
+  {
+    image: product2,
+    name: "Gel Polish Collection",
+    description: "Long-lasting shine with salon-quality colors curated for every season.",
+  },
+  {
+    image: product3,
+    name: "Lash Care Serum",
+    description: "Gentle daily serum to support stronger, fuller-looking lashes.",
+  },
+  {
+    image: product4,
+    name: "Kids Nail Set",
+    description: "Kid-friendly polish and accessories designed for safe, fun mini manicures.",
   },
 ];
 
@@ -319,6 +347,42 @@ const Index = () => {
                       <p className="font-heading text-sm text-primary whitespace-nowrap">{item.price}</p>
                     </div>
                   ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Products Section */}
+      <section id="our-products" className="py-16 bg-floral-pattern scroll-mt-24">
+        <div className="container mx-auto px-4">
+          <SectionTitle subtitle="KIM BEAUTY NAIL & HAIR" title="Our Products" />
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-10">
+            Discover salon-selected products to maintain beautiful nails, lashes, and skin at home.
+          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {products.map((product) => (
+              <div key={product.name} className="rounded-2xl border border-border overflow-hidden">
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-heading text-base font-bold text-foreground">{product.name}</h3>
+                  <p className="text-sm text-muted-foreground mt-2 min-h-12">{product.description}</p>
+                  <div className="mt-4">
+                    <Link
+                      to="/booking"
+                      className="inline-block border border-primary text-primary px-4 py-2 rounded-full text-xs font-bold hover:bg-primary hover:text-primary-foreground transition-colors"
+                    >
+                      Ask in salon
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
