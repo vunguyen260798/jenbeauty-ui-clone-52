@@ -10,7 +10,19 @@ import salonInterior from "@/assets/salon-interior.jpg";
 import heroBanner1 from "@/assets/hero-banner-1.png";
 import heroBanner2 from "@/assets/hero-banner-2.jpg";
 
-const categories = ["NAILS", "EYE LASH", "OUR SHOP"];
+import eye1 from "@/assets/eye-1.jpg";
+import eye2 from "@/assets/eye-2.jpg";
+import eye3 from "@/assets/eye-3.webp";
+import eye4 from "@/assets/eye-4.jpg";
+import eye5 from "@/assets/eye-5.jpg";
+import eye6 from "@/assets/eye-6.jpg";
+
+import kid1 from "@/assets/kid-1.jpg";
+import kid2 from "@/assets/kid-2.jpg";
+import kid3 from "@/assets/kid-3.jpg";
+import kid4 from "@/assets/kid-4.jpg";
+
+const categories = ["NAILS", "EYE LASH", "NAILS FOR KIDS"] as const;
 
 const galleryImages: Record<string, { src: string; title: string }[]> = {
   NAILS: [
@@ -19,17 +31,20 @@ const galleryImages: Record<string, { src: string; title: string }[]> = {
     { src: nail4, title: "French Tips" },
     { src: nail5, title: "Rainbow Nails" },
     { src: nail6, title: "Gold Chrome" },
-    { src: heroBanner1, title: "Pink & Gold Set" },
-    { src: heroBanner2, title: "Nail Collection" },
-    { src: nail2, title: "Flower Design" },
   ],
   "EYE LASH": [
-    { src: salonInterior, title: "Classic Lash" },
-    { src: heroBanner1, title: "Volume Lash" },
+    { src: eye1, title: "Classic Lash" },
+    { src: eye2, title: "Volume Lash" },
+    { src: eye3, title: "Hybrid Lash" },
+    { src: eye4, title: "Mega Volume Lash" },
+    { src: eye5, title: "Russian Volume Lash" },
+    { src: eye6, title: "Lash Lift" },
   ],
-  "OUR SHOP": [
-    { src: salonInterior, title: "Our Salon" },
-    { src: heroBanner2, title: "Nail Station" },
+  "NAILS FOR KIDS": [
+    { src: kid1, title: "Cute Pink Nails" },
+    { src: kid2, title: "Sparkle Blue Nails" },
+    { src: kid3, title: "Rainbow Nails" },
+    { src: kid4, title: "Animal Print Nails" },
   ],
 };
 

@@ -19,34 +19,44 @@ const services = [
 
 const pricingTabs = [
   {
+    label: "Hair & Beauty",
+    items: [
+      { name: "Hair Cut (Women)", price: "$45 & up" },
+      { name: "Hair Cut (Men & Kids)", price: "$20 & up" },
+      { name: "Perms", price: "$85 & up" },
+      { name: "Hair Set", price: "$30 & up" },
+      { name: "Tints", price: "$85 & up" },
+      { name: "Touch Up", price: "$65 & up" },
+      { name: "Highlight", price: "$85 & up" },
+      { name: "Frosting", price: "$50 & up" },
+      { name: "Facial Wax", price: "$45 & up" },
+      { name: "Eyebrow Wax", price: "$15 & up" },
+      { name: "Facial", price: "$55 & up" },
+      { name: "Eyelash Extensions", price: "$120 & up" },
+      { name: "Microblading", price: "$350" },
+    ],
+  },
+  {
     label: "Nails",
     items: [
-      { name: "Express Manicure", duration: "~30min", price: "$38" },
-      { name: "Express Manicure (Gel)", duration: "~30min", price: "$48" },
-      { name: "Classic Manicure", duration: "~45min", price: "$48" },
-      { name: "Classic Manicure (Gel)", duration: "~60min", price: "$68" },
-      { name: "Express Pedicure", duration: "~45min", price: "$48" },
-      { name: "Express Pedicure (Gel)", duration: "~45min", price: "$58" },
-      { name: "Classic Pedicure", duration: "~45min", price: "$58" },
-      { name: "Classic Pedicure (Gel)", duration: "~60min", price: "$78" },
-    ],
-  },
-  {
-    label: "Eye Lash",
-    items: [
-      { name: "Classic 1:1", duration: "~75min", price: "$78" },
-      { name: "YY Lashes", duration: "~75min", price: "$88" },
-      { name: "2D - 3D", duration: "~90min", price: "$88" },
-      { name: "4D - 5D", duration: "~100min", price: "$98" },
-      { name: "6D - 7D", duration: "~120min", price: "$108" },
-      { name: "8D - 9D", duration: "~120min", price: "$108" },
-      { name: "Lash Removal", duration: "~10min", price: "$10" },
-    ],
-  },
-  {
-    label: "Facial Spa",
-    items: [
-      { name: "BB Glow", duration: "~90min", price: "$128" },
+      { name: "Acrylic Full Set", price: "$55 & up" },
+      { name: "Acrylic Refill", price: "$45 & up" },
+      { name: "Pink & White Full Set", price: "$65 & up" },
+      { name: "Pink & White Refill", price: "$50 & up" },
+      { name: "Pink & White Gel Full Set", price: "$65 & up" },
+      { name: "Pink & White Gel Refill", price: "$45 & up" },
+      { name: "Crystal Gel Full Set", price: "$55 & up" },
+      { name: "Crystal Gel Refill", price: "$40 & up" },
+      { name: "Dip Powder", price: "$40 & up" },
+      { name: "Dip Powder Refill", price: "$30 & up" },
+      { name: "Manicure (Basic)", price: "$25" },
+      { name: "Pedicure", price: "$35" },
+      { name: "Color Change", price: "$10 & up" },
+      { name: "French Manicure (Color)", price: "$10" },
+      { name: "Nails Repair", price: "$5 & up" },
+      { name: "Nails Take Off", price: "$10 & up" },
+      { name: "Nails Design", price: "$5 & up" },
+      { name: "Nails Cut Down", price: "$5 & up" },
     ],
   },
 ];
@@ -70,6 +80,18 @@ const ServiceNails = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+
+  const getDurationLabel = (serviceName: string) => {
+    if (serviceName === "Microblading") {
+      return "3 tiếng";
+    }
+
+    if (serviceName === "Facial" || serviceName === "Eyelash Extensions") {
+      return "1 giờ 30 phút";
+    }
+
+    return "1 giờ";
+  };
 
   useEffect(() => {
     if (!carouselApi) {
@@ -184,7 +206,7 @@ const ServiceNails = () => {
               >
                 <div>
                   <p className="font-bold text-foreground">{item.name}</p>
-                  <p className="text-xs text-muted-foreground">{item.duration}</p>
+                  <p className="text-xs text-muted-foreground">{getDurationLabel(item.name)}</p>
                 </div>
                 <div className="flex items-center gap-4">
                   <span className="font-heading text-lg font-bold text-primary">{item.price}</span>

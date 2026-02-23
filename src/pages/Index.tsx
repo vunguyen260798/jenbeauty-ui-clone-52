@@ -11,6 +11,19 @@ import nail3 from "@/assets/nail-3.jpg";
 import nail4 from "@/assets/nail-4.webp";
 import nail5 from "@/assets/nail-5.webp";
 import nail6 from "@/assets/nail-6.jpg";
+
+import eye1 from "@/assets/eye-1.jpg";
+import eye2 from "@/assets/eye-2.jpg";
+import eye3 from "@/assets/eye-3.webp";
+import eye4 from "@/assets/eye-4.jpg";
+import eye5 from "@/assets/eye-5.jpg";
+import eye6 from "@/assets/eye-6.jpg";
+
+import kid1 from "@/assets/kid-1.jpg";
+import kid2 from "@/assets/kid-2.jpg";
+import kid3 from "@/assets/kid-3.jpg";
+import kid4 from "@/assets/kid-4.jpg";
+
 import salonInterior from "@/assets/salon-interior.jpg";
 
 const INSTAGRAM_URL = "https://www.instagram.com/kim.beauty.nail.hair/";
@@ -36,9 +49,75 @@ const stats = [
   { number: "5041", label: "TREATMENTS" },
 ];
 
+const galleryTabs = ["nails", "eye lash", "nails for kids"] as const;
+type GalleryTab = (typeof galleryTabs)[number];
+
+const galleryPreviewByTab: Record<GalleryTab, string[]> = {
+  nails: [nail2, nail3, nail4, nail5, nail6],
+  "eye lash": [eye1, eye2, eye3, eye4, eye5, eye6],
+  "nails for kids": [kid1, kid2, kid3, kid4],
+};
+
+const pricingGroups = [
+  {
+    title: "Hair & Beauty",
+    items: [
+      { name: "Hair Cut (Women)", price: "$45 & up" },
+      { name: "Hair Cut (Men & Kids)", price: "$20 & up" },
+      { name: "Perms", price: "$85 & up" },
+      { name: "Hair Set", price: "$30 & up" },
+      { name: "Tints", price: "$85 & up" },
+      { name: "Touch Up", price: "$65 & up" },
+      { name: "Highlight", price: "$85 & up" },
+      { name: "Frosting", price: "$50 & up" },
+      { name: "Facial Wax", price: "$45 & up" },
+      { name: "Eyebrow Wax", price: "$15 & up" },
+      { name: "Facial", price: "$55 & up" },
+      { name: "Eyelash Extensions", price: "$120 & up" },
+      { name: "Microblading", price: "$350" },
+    ],
+  },
+  {
+    title: "Nails",
+    items: [
+      { name: "Acrylic Full Set", price: "$55 & up" },
+      { name: "Acrylic Refill", price: "$45 & up" },
+      { name: "Pink & White Full Set", price: "$65 & up" },
+      { name: "Pink & White Refill", price: "$50 & up" },
+      { name: "Pink & White Gel Full Set", price: "$65 & up" },
+      { name: "Pink & White Gel Refill", price: "$45 & up" },
+      { name: "Crystal Gel Full Set", price: "$55 & up" },
+      { name: "Crystal Gel Refill", price: "$40 & up" },
+      { name: "Dip Powder", price: "$40 & up" },
+      { name: "Dip Powder Refill", price: "$30 & up" },
+      { name: "Manicure (Basic)", price: "$25" },
+      { name: "Pedicure", price: "$35" },
+      { name: "Color Change", price: "$10 & up" },
+      { name: "French Manicure (Color)", price: "$10" },
+      { name: "Nails Repair", price: "$5 & up" },
+      { name: "Nails Take Off", price: "$10 & up" },
+      { name: "Nails Design", price: "$5 & up" },
+      { name: "Nails Cut Down", price: "$5 & up" },
+    ],
+  },
+];
+
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [topPicksApi, setTopPicksApi] = useState<CarouselApi>();
+  const [activeGalleryTab, setActiveGalleryTab] = useState<GalleryTab>("nails");
+
+  const getDurationLabel = (serviceName: string) => {
+    if (serviceName === "Microblading") {
+      return "3 tiếng";
+    }
+
+    if (serviceName === "Facial" || serviceName === "Eyelash Extensions") {
+      return "1 giờ 30 phút";
+    }
+
+    return "1 giờ";
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -167,9 +246,119 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Our Gallery Section */}
+      <section id="our-gallery" className="py-16 bg-floral-pattern scroll-mt-24">
+        <div className="container mx-auto px-4">
+          <SectionTitle subtitle="KIM BEAUTY NAIL & HAIR" title="Our Gallery" />
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-10">
+            A quick look at some of our recent nail and beauty transformations.
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {galleryTabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveGalleryTab(tab)}
+                className={`px-5 py-2 rounded-full text-sm font-bold capitalize transition-colors ${
+                  activeGalleryTab === tab
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-secondary text-foreground hover:bg-primary/20"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {galleryPreviewByTab[activeGalleryTab].map((image, index) => (
+              <Link
+                key={`${activeGalleryTab}-${index}`}
+                to="/gallery/nails"
+                className="block overflow-hidden rounded-2xl aspect-square group"
+              >
+                <img
+                  src={image}
+                  alt="KIM BEAUTY NAIL & HAIR gallery"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              to="/gallery/nails"
+              className="inline-block border-2 border-primary text-primary px-8 py-3 font-bold tracking-wider text-sm hover:bg-primary hover:text-primary-foreground transition-colors rounded"
+            >
+              View full gallery
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Pricing Section */}
+      <section id="our-pricing" className="py-16 scroll-mt-24">
+        <div className="container mx-auto px-4">
+          <SectionTitle subtitle="KIM BEAUTY NAIL & HAIR" title="Our Pricing" />
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-10">
+            Transparent salon pricing. Final quote may vary by hair length, design complexity, and product selection.
+          </p>
+
+          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {pricingGroups.map((group) => (
+              <div key={group.title} className="rounded-2xl border border-border bg-card p-6">
+                <h3 className="font-heading text-xl font-bold text-foreground mb-4">{group.title}</h3>
+                <div className="space-y-3">
+                  {group.items.map((item) => (
+                    <div key={item.name} className="flex items-center justify-between gap-4 border-b border-border/70 pb-2 last:border-none last:pb-0">
+                      <div>
+                        <p className="text-sm text-foreground">{item.name}</p>
+                        <p className="text-xs text-muted-foreground mt-0.5">{getDurationLabel(item.name)}</p>
+                      </div>
+                      <p className="font-heading text-sm text-primary whitespace-nowrap">{item.price}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Appointment Section */}
+      <section id="appointment" className="py-16 bg-floral-pattern scroll-mt-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto rounded-2xl bg-card border border-border p-8 md:p-10 text-center">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Appointment</p>
+            <h2 className="font-heading text-3xl md:text-4xl text-foreground mt-4">Book your next visit</h2>
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+              Choose your service and preferred schedule in our live booking page.
+            </p>
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+              Need support? Call us at +1 (669) 837-3923.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                to="/booking"
+                className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-full font-bold text-sm hover:bg-gold-dark transition-colors"
+              >
+                MAKE AN APPOINTMENT
+              </Link>
+              <a
+                href="tel:+16698373923"
+                className="inline-block border-2 border-primary text-primary px-8 py-3 rounded-full font-bold text-sm hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                CALL NOW
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us Section */}
       <section className="py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-4xl">
           <SectionTitle subtitle="KIM BEAUTY NAIL & HAIR" title="Why Choose Us" />
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div className="rounded-2xl overflow-hidden">

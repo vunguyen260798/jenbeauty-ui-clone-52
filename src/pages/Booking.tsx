@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import { useEffect } from "react";
 
-const ACUITY_EMBED_URL = "https://app.acuityscheduling.com/schedule.php?owner=38337322";
+const ACUITY_EMBED_URL = "https://app.acuityscheduling.com/schedule.php?owner=38401435";
 const ACUITY_EMBED_SCRIPT = "https://embed.acuityscheduling.com/js/embed.js";
 const INSTAGRAM_URL = "https://www.instagram.com/kim.beauty.nail.hair/";
 
