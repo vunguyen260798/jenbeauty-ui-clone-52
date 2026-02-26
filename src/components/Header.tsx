@@ -41,7 +41,7 @@ const Header = () => {
               <Globe className="w-5 h-5 text-primary" />
               <div>
                 <p className="font-bold text-sm text-foreground">+1 (669) 837-3923</p>
-                <p className="text-xs text-muted-foreground">kimbrowshairnail9099@gmail.com</p>
+                {/* <p className="text-xs text-muted-foreground">kimbrowshairnail9099@gmail.com</p> */}
               </div>
             </div>
             <div className="flex items-center gap-2">

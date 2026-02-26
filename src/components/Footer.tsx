@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Clock } from "lucide-react";
 
 const INSTAGRAM_URL = "https://www.instagram.com/kim.beauty.nail.hair/";
 
@@ -57,10 +57,6 @@ const Footer = () => {
                 <span>+1 (669) 837-3923</span>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-                <span>kimbrowshairnail9099@gmail.com</span>
-              </li>
-              <li className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-primary flex-shrink-0" />
                 <span>Mon - Fri (10 AM - 7 PM), Sat (10 AM - 6 PM), Sun (Closed)</span>
               </li>
@@ -69,7 +65,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/20 pt-4 text-center text-xs">
-          <p>© 2024 KIM BEAUTY NAIL & HAIR. All rights reserved.</p>
+          <p>© 2026 KIM BROWS HAIR NAIL. All rights reserved.</p>
         </div>
       </div>
     </footer>

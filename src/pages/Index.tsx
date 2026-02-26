@@ -29,6 +29,12 @@ import product2 from "@/assets/product-2.jpg";
 import product3 from "@/assets/product-3.jpg";
 import product4 from "@/assets/product-4.jpg";
 
+import mi1 from "@/assets/mi1.jpg";
+import mi2 from "@/assets/mi2.jpg";
+import mi3 from "@/assets/mi3.jpg";
+import mi4 from "@/assets/mi4.jpg";
+
+
 import salonInterior from "@/assets/salon-interior.jpg";
 
 const INSTAGRAM_URL = "https://www.instagram.com/kim.beauty.nail.hair/";
@@ -54,13 +60,14 @@ const stats = [
   { number: "5041", label: "TREATMENTS" },
 ];
 
-const galleryTabs = ["nails", "eye lash", "nails for kids"] as const;
+const galleryTabs = ["nails", "eye lash", "nails for kids", "microblading"] as const;
 type GalleryTab = (typeof galleryTabs)[number];
 
 const galleryPreviewByTab: Record<GalleryTab, string[]> = {
   nails: [nail2, nail3, nail4, nail5, nail6],
   "eye lash": [eye1, eye2, eye3, eye4, eye5, eye6],
   "nails for kids": [kid1, kid2, kid3, kid4],
+  microblading: [mi1, mi2, mi3, mi4],
 };
 
 const pricingGroups = [
@@ -137,14 +144,14 @@ const Index = () => {
 
   const getDurationLabel = (serviceName: string) => {
     if (serviceName === "Microblading") {
-      return "3 tiếng";
+      return "3 hr";
     }
 
     if (serviceName === "Facial" || serviceName === "Eyelash Extensions") {
-      return "1 giờ 30 phút";
+      return "1 hr 30 min";
     }
 
-    return "1 giờ";
+    return "1 hr";
   };
 
   useEffect(() => {
