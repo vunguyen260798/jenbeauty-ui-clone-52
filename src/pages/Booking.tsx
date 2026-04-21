@@ -44,13 +44,22 @@ const Booking = () => {
                   Pick your service, preferred staff, and the time that works best. The live
                   calendar updates instantly as you browse.
                 </p>
-                <div className="mt-6 text-sm text-foreground">
-                  +1 (669) 837-3923
-                  <span className="block text-xs text-muted-foreground mt-2">
-                    Mon - Fri (10 AM - 7 PM)
-                    <br />
-                    Sat (10 AM - 6 PM), Sun (Closed)
-                  </span>
+                <div className="mt-6 space-y-3">
+                  <a
+                    href="tel:+16698373923"
+                    className="block text-2xl font-semibold text-foreground hover:underline"
+                  >
+                    +1 (669) 837-3923
+                  </a>
+                  <div>
+                    <p className="text-sm font-medium text-foreground">
+                      Let's CALL for making an appointment
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Mon - Fri (10 AM - 7 PM) &nbsp;·&nbsp; Sat (10 AM - 6 PM) &nbsp;·&nbsp; Sun (Closed)
+                    </p>
+                  </div>
+                  <p className="text-sm font-medium text-foreground">TEXT 24/7</p>
                 </div>
               </div>
 
