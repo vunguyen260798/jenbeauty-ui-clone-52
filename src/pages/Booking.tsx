@@ -22,16 +22,6 @@ const Booking = () => {
       <section className="py-20 md:py-28">
         <div className="container max-w-7xl mx-auto px-4">
           <div className="space-y-10">
-            <div className="border border-border bg-background/80 p-4 md:p-6 rounded-xl">
-              <iframe
-                title="Acuity Scheduling"
-                src={ACUITY_EMBED_URL}
-                width="100%"
-                height="1100"
-                frameBorder={0}
-              />
-            </div>
-
             <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-start">
               <div className="border border-border bg-background/80 p-8 rounded-xl">
                 <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
